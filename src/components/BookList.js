@@ -2,13 +2,12 @@ import React from "react";
 import { experimentalStyled as styled, Paper, Box, Grid } from "@mui/material";
 import BookCard from "./BookCard";
 
-const BookList = ({ books, setBook, setOpen }) => {
+const BookList = ({ books }) => {
   const styles = {
     box: {
-      margin: "40px",
+      marginTop: "20px",
       flexGrow: 1,
     },
-
     grid: {
       width: "fit-content",
     },
@@ -17,14 +16,15 @@ const BookList = ({ books, setBook, setOpen }) => {
   return (
     <Box style={styles.box}>
       <Grid
+        style={{ display: "flex" }}
         container
         spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
+        columns={{ xs: 1, sm: 8, md: 12 }}
       >
         {books.map((books, index) => (
           <Grid item xs={2} sm={4} md={3} key={index} style={styles.grid}>
             <Item>
-              <BookCard setOpen={setOpen} setBook={setBook} books={books} />
+              <BookCard books={books} />
             </Item>
           </Grid>
         ))}
